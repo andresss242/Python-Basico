@@ -1,94 +1,34 @@
 #importar libreria de varios archivos
 
-from interfaz import (menu, 
-                      opcion_seleccionada, 
-                      solicitud_cuadrado,
-                      solicitud_triangulo,
-                      solicitud_circulo,
-                      solicitud_pentagono,
-                      solicitud_trapecio,
-                      solicitud_romboide,
-                      solicitud_rombo,
-                      solicitud_rectangulo,
-                      mostrar_cuadrado,
-                      mostrar_triangulo,
-                      mostrar_circulo,
-                      mostrar_pentagono,
-                      mostrar_trapecio,
-                      mostrar_romboide,
-                      mostrar_rombo,
-                      mostrar_rectangulo)
+from interfaz import *
+from figuras import *
 
-from figuras import (area_cuadrado,
-                     area_triangulo,
-                     area_circulo,
-                     area_pentagono,
-                     area_rectangulo,
-                     area_rombo,
-                     area_romboide,
-                     area_trapecio)
+calculos_area = {
+    "CUADRADO": area_cuadrado,
+    "TRIÁNGULO": area_triangulo,
+    "CÍRCULO": area_circulo,
+    "PENTÁGONO": area_pentagono,
+    "TRAPECIO": area_trapecio,
+    "ROMBO": area_rombo,
+    "ROMBOIDE": area_romboide_rectangulo,
+    "RECTÁNGULO": area_romboide_rectangulo
+}
 
-
-#variables
-opcion = 0
-#funcion pricipal
-while opcion != 4:
+while True:
     op = menu()
-    formas_geometricas = opcion_seleccionada(op)
-    #condiciones
-    #cuadrado
-    if formas_geometricas == 1:
-        lado = solicitud_cuadrado()
-        area = area_cuadrado(lado)
-        mostrar_cuadrado(area)
+    figura = opcion_seleccionada(op)
     
-    #triangulo
-    elif formas_geometricas == 2:
-        lado = solicitud_triangulo()
-        area = area_triangulo(lado)
-        mostrar_triangulo(area)
-    
-    #circulo
-    elif formas_geometricas == 3:
-        lado = solicitud_circulo()
-        area = area_circulo(lado)
-        mostrar_circulo(area)
-    
-    #pentagono
-    elif formas_geometricas == 4:
-        lado = solicitud_pentagono()
-        area = area_pentagono(lado)
-        mostrar_pentagono(area)
-    
-    #trapecio
-    elif formas_geometricas == 5:
-        lado = solicitud_trapecio()
-        area = area_trapecio(lado)
-        mostrar_trapecio(area)
-    
-    #romboide
-    elif formas_geometricas == 6:
-        lado = solicitud_romboide()
-        area = area_romboide(lado)
-        mostrar_romboide(area)
-    
-    #rombo
-    elif formas_geometricas == 7:
-        lado = solicitud_rombo()
-        area = area_rombo(lado)
-        mostrar_rombo(area)
-    
-    #rectangulo
-    elif formas_geometricas == 8:
-        lado = solicitud_rectangulo()
-        area = area_rectangulo(lado)
-        mostrar_rectangulo(area)
-        
-    elif formas_geometricas == 9:
-        print("saliendo de la calculadora....")
+    # Si se selecciona "SALIR" o una opción no válida
+    if figura == "SALIR":
+        print("Saliendo de la calculadora...")
         break
-    else: 
-        print("opcion incorrecta")
+    elif figura not in calculos_area:
+        print("Opción incorrecta")
+        continue
+    
+    # Solicitar datos, calcular área y mostrar el resultado
+    datos = solicitud_datos(figura)
+    area = calculos_area[figura](*datos)
+    mostrar_area(figura, area)
 
-print("gracias por usar mi calculadora de figuras geometricas")
-
+print("Gracias por usar mi calculadora de figuras geométricas")
