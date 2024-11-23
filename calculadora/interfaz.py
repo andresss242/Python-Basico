@@ -1,7 +1,6 @@
-# Función de menú principal
 def menu():
     """
-    Muestra el menú de las figuras geométricas y retorna la opción seleccionada.
+    Muestra el menú de las figuras geométricas y retorna la opción seleccionada
     """
     opciones = [
         "Cuadrado", "Triángulo", "Círculo", "Pentágono",
@@ -17,8 +16,6 @@ def menu():
     except ValueError:
         print("Por favor, ingrese un número válido.")
         return None
-
-# Función para mostrar la opción seleccionada
 def opcion_seleccionada(op):
     """
     Muestra y retorna el nombre de la figura seleccionada
@@ -35,14 +32,13 @@ def opcion_seleccionada(op):
         print("Opción no válida.")
     return figura
 
-# Solicitud de datos según la figura seleccionada
 def solicitud_datos(figura):
     """
     Solicita y retorna los datos necesarios para cada figura
     """
     if figura == "CUADRADO":
         lado = float(input("Digite el lado: "))
-        return (lado,)
+        return (lado)
     elif figura == "TRIÁNGULO" or figura == "ROMBOIDE" or figura == "RECTÁNGULO":
         base = float(input("Digite la base: "))
         altura = float(input("Digite la altura: "))
@@ -63,15 +59,11 @@ def solicitud_datos(figura):
         diag_mayor = float(input("Digite la diagonal mayor: "))
         diag_menor = float(input("Digite la diagonal menor: "))
         return diag_mayor, diag_menor
-
-# Función genérica para mostrar el área calculada
 def mostrar_area(figura, area):
     """
     Muestra el área calculada de la figura seleccionada
     """
-    print(f"El área del {figura} es: {area}")
-
-# Ejemplo de uso simplificado
+    print(f"El área del {figura} es: {area}cm")
 opcion = menu()
 figura = opcion_seleccionada(opcion)
 if figura and figura != "SALIR":

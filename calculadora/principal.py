@@ -1,5 +1,3 @@
-#importar libreria de varios archivos
-
 from interfaz import *
 from figuras import *
 
@@ -18,7 +16,6 @@ while True:
     op = menu()
     figura = opcion_seleccionada(op)
     
-    # Si se selecciona "SALIR" o una opción no válida
     if figura == "SALIR":
         print("Saliendo de la calculadora...")
         break
@@ -26,7 +23,6 @@ while True:
         print("Opción incorrecta")
         continue
     
-    # Solicitar datos, calcular área y mostrar el resultado
     datos = solicitud_datos(figura)
     area = calculos_area[figura](*datos)
     mostrar_area(figura, area)

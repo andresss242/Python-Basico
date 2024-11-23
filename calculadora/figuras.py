@@ -1,13 +1,10 @@
-#import math
 import math
-#area cuadrado
 def area_cuadrado(lado):
     """
     calcula el area del cuadrado, 
     a = 1 * 1
     """
     return lado * lado
-#area triangulo
 def area_triangulo(base,altura):
     """
     calcula el area de un triangulo 
@@ -21,27 +18,23 @@ def area_circulo(radio):
     a = pi*radio^2
     """
     return math.pi * radio * radio
-#area pentegono
 def area_pentagono(lado, apotema):
     """
     calcula el area de un pentagono
     """
     return (5 * lado * apotema) / 2
-#Area trapecio
 def area_trapecio(base_menor, base_mayor, altura):
     """
     calcula el area de un trapecio
     a = Bm=BM * h / 2
     """ 
     return ((base_menor + base_mayor) * altura) / 2
-#area romboo
 def area_rombo(diagonal_mayor, diagonal_menor):
     """
     calcula el area de un rombo 
     a = DM * Dm / 2
     """
     return (diagonal_mayor * diagonal_menor) / 2
-#area romboide o rectangulo
 def area_romboide_rectangulo(base, altura):
     """
     Calcula el area de un rombiode o rectangulo
