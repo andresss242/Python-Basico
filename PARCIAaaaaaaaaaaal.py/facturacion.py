@@ -26,9 +26,6 @@ class Factura:
         iva = self.total * self.IVA
         print(f"IVA (19%): COP{iva:.2f}")
         print(f"Total: COP{self.total + iva:.2f}")
-    
-
-
 #agregar producto a la factura 
 def agregar_producto_factura(factura, catalogo):
     """Permite al usuario agregar un producto a la factura
